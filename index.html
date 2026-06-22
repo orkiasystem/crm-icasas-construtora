@@ -1074,7 +1074,17 @@ function setupSupportRealtime(){
         <div class="form-group"><label>Telefone / WhatsApp *</label><input type="tel" id="l-phone" placeholder="(17) 99999-9999"></div>
       </div>
       <div class="form-row">
-        <div class="form-group" style="grid-column:span 2"><label>Origem</label><input type="text" id="l-source" placeholder="Ex: Facebook Ads, Indicação, Site..."></div>
+        <div class="form-group" style="grid-column:span 2"><label>Origem</label>
+          <select id="l-source">
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Site">Site</option>
+            <option value="Feirão">Feirão</option>
+            <option value="Indicação">Indicação</option>
+            <option value="Outros">Outros</option>
+          </select>
+        </div>
       </div>
       <div class="form-row">
         <div class="form-group" id="l-seller-group"><label>Vendedor responsável *</label><select id="l-seller"><option value="">Selecionar...</option></select></div>
@@ -1663,7 +1673,13 @@ function exportPDF(){
 function openLeadModal(lead=null){
   document.getElementById('editLeadId').value=lead?lead.id:'';
   document.getElementById('leadModalTitle').textContent=lead?'Editar Lead':'Novo Lead';
-  [['l-name','name'],['l-phone','phone'],['l-source','source'],['l-notes','notes'],['l-value','value']].forEach(([id,k])=>document.getElementById(id).value=lead?(lead[k]||''):'');
+  [['l-name','name'],['l-phone','phone'],['l-notes','notes'],['l-value','value']].forEach(([id,k])=>document.getElementById(id).value=lead?(lead[k]||''):'');
+  // Origem é um select fixo — se o lead tiver um valor antigo (texto livre) que não está
+  // mais na lista, cai em "Outros" em vez de deixar o select em branco/errado.
+  const sourceSelect = document.getElementById('l-source');
+  const sourceValue = lead ? (lead.source || 'Instagram') : 'Instagram';
+  const validOptions = Array.from(sourceSelect.options).map(o=>o.value);
+  sourceSelect.value = validOptions.includes(sourceValue) ? sourceValue : 'Outros';
   document.getElementById('l-stage').value=lead?(lead.stage||'new'):'new';
   document.getElementById('l-temp').value=lead?(lead.temperature||'hot'):'hot';
   // Se for vendedor, preenche automaticamente e esconde o select
