@@ -138,6 +138,7 @@
   .badge-won{background:rgba(34,197,94,.2);color:#4ade80;}
   .badge-rework{background:rgba(251,146,60,.15);color:#fdba74;}
   .badge-lost{background:rgba(239,68,68,.15);color:#f87171;}
+  .badge-archived{background:rgba(148,163,184,.15);color:#94a3b8;}
 
   /* PIPELINE HEADER */
   .pipeline-header{padding:16px 24px 0;flex-shrink:0;background:var(--bg);}
@@ -1079,7 +1080,7 @@ function setupSupportRealtime(){
         <div class="form-group" id="l-seller-group"><label>Vendedor responsável *</label><select id="l-seller"><option value="">Selecionar...</option></select></div>
         <div class="form-group" id="l-seller-fixed" style="display:none;"><label>Vendedor responsável</label><div style="background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--text);" id="l-seller-name">—</div></div>
         <div class="form-group"><label>Estágio</label>
-          <select id="l-stage"><option value="new">Novo Lead</option><option value="contact_initial">Contato Inicial</option><option value="contact_done">Contato Realizado</option><option value="visit_scheduled">Visita Agendada</option><option value="meeting_done">Reunião Realizada</option><option value="negotiation">Negociação</option><option value="won">Fechado</option><option value="rework">Retrabalho</option><option value="lost">Lead Perdido</option></select>
+          <select id="l-stage"><option value="new">Novo Lead</option><option value="contact_initial">Contato Inicial</option><option value="contact_done">Contato Realizado</option><option value="visit_scheduled">Visita Agendada</option><option value="meeting_done">Reunião Realizada</option><option value="negotiation">Negociação</option><option value="won">Fechado</option><option value="rework">Retrabalho</option><option value="lost">Lead Perdido</option><option value="archived">Arquivado</option></select>
         </div>
       </div>
       <div class="form-row">
@@ -1211,7 +1212,8 @@ const STAGES={
   negotiation:{label:'Negociação',badge:'badge-negotiation',dot:'#f59e0b'},
   won:{label:'Fechado',badge:'badge-won',dot:'#22c55e'},
   rework:{label:'Retrabalho',badge:'badge-rework',dot:'#fb923c'},
-  lost:{label:'Lead Perdido',badge:'badge-lost',dot:'#ef4444'}
+  lost:{label:'Lead Perdido',badge:'badge-lost',dot:'#ef4444'},
+  archived:{label:'Arquivado',badge:'badge-archived',dot:'#94a3b8'}
 };
 
 // SESSION
