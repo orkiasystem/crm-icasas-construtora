@@ -439,15 +439,53 @@ window.__masterCheckPromise = (async function masterAccessCheck(){
 
 <!-- LOGIN -->
 <div class="login-screen show" id="loginScreen">
-  <div class="login-card">
+  <div class="login-card" id="loginStep1">
     <div class="login-logo-wrap"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iQ2FtYWRhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgOTAxLjA1IDQ5OS45MSI+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDMwLjUuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDIuMS40IEJ1aWxkIDMpICAtLT4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLnN0MCB7CiAgICAgICAgZmlsbDogI2ZiZmNmYjsKICAgICAgfQoKICAgICAgLnN0MSB7CiAgICAgICAgZmlsbDogIzE5YTdiODsKICAgICAgfQoKICAgICAgLnN0MiB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgfQoKICAgICAgLnN0MyB7CiAgICAgICAgZmlsbDogIzNiN2ZmZDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9Ik9iamV0b19nZW5lcmF0aXZvIj4KICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04OTUuOTgsMzM2LjhjLTE5LjQyLDI1LjU2LTkxLjUsMzMuOTgtMTI0LjIyLDM2LjE5bC00OC4xNSwzLjI3Yy0xOC4xLDEuMjMtMzUuNjcsMy40OS01My4xMSw4LjgtMjAuMzcsNi4yMS0zOC4yMywxNy4wNS01NC43OSwzMC4yNi0xNy4wMiwxMy41Ni0zNC4wNCwyNi4xNC01Mi44MSwzNy4yLTM2LjA4LDIxLjI4LTc5Ljk3LDM2LjU1LTEyMi4wNiwzNS43OGwzNS4xOS0xMC41OGM0Ny4xMS0xNy42Miw4Ny4wNi00My44OSwxMTkuMy04Mi43NiwxMC42NS0xMi44NSwyMC4zMi0yNS45MSwyOS4xNi00MGwxMC43Ni0xOC43NGMzNS43Ny0yNS44Myw3Ny45Mi0zMi42NSwxMjEuMDktMjQuMjRsMzIuMTYsOC4xNywzNC41NSwxMC4xNWMxOC41Miw1LjQ0LDYxLjIyLDE0LjA5LDY1LjcxLTcuNTUsMi4zMy0xMS4yNC0xMC4xMy0zMC40Ny0xNy43Ni00MC40Ni0xMC4zOC0xMy41OC0yMS44Mi0yNS42NS0zNS4wOS0zNi41NC0zMS4zNC0yNS43NC02My4zNi00Mi43NS0xMDEuMTEtNTcuNTQtNTYuMjMtMjIuMDItMTExLjI4LTMyLjE3LTE3MS4wMy0zNy4zN2wtMTYuMi0yNy41OWMtOC41Ny0xNC41OS0xOS4yLTI3LjI1LTMwLjcyLTM5LjY3LTIyLjI4LTIzLjIzLTQ3LjI4LTQwLjY5LTc3Ljk4LTUwLjc3bC0xLjA2Ljc4LDEyLjE1LDIyLjU1YzE0Ljk0LDMwLjg2LDI0LjU2LDcxLjE5LDEuNzgsOTkuNzEtMTIuNTgsMTUuNzYtMzAuMDcsMjQuMzUtNDguNiwzMS42M2wtNDAuNDUsMTUuODhjLTIzLjk1LDkuNDEtNDYuNjcsMjAuODgtNjguODcsMzMuOTktMzYuMjEsMjEuMzktNjguOCw0OC4yNC05NS4yOSw4MC45OS0xNi40MywyMC4zMS0yOS45Niw0Mi41My00MS4wNSw2Ni4xbC0xNi45Nyw0My43NGMtMy4zNyw4LjctNi42NywxNi43NC0xMS4yMywyNC44Ny05LjY3LDE3LjI0LTIzLjg3LDMxLjE2LTQxLjkzLDM5LjM4LTI2Ljk5LDEyLjI3LTYwLjI4LDguMzctODcuMzUtMy44N2wyNS44OC4wM2MzOS45Ni0yLjUsNzEuOTctMjUuNiw5Mi45Mi01OC44OCw2LjYtMTAuNSwxMS41OS0yMS4xMSwxNi41OS0zMi40OSwyMS4yLTQ4LjMzLDQzLjM2LTg0Ljc2LDgwLjgyLTEyMi4zOCwxNy4zNy0xNy40NCwzNS45My0zMi44Miw1Ni4zOS00Ni40OSwzMi4yLTIxLjUyLDY4Ljg5LTM5LjgyLDEwNS4xMi01My4zOGwyNC42MS0xMC4zOGM5LjYyLTQuODUsMTguMTMtMTAuNzYsMjUuNTMtMTguNTIsMTQuMDYtMTQuNzQsMTkuOTctMzQuNTgsMTYuMzYtNTQuNzEtMi4zMy0xMy4wNC03LjAxLTI0Ljc1LTEzLjE4LTM2LjUxLTguNjQtMTYuNDctMjAuMDEtMzAuODEtMzIuOTUtNDQuMTJsLTEwLjQyLTEwLjczYzI4LjkzLjY4LDU2LjE0LDguNDUsODEuNDEsMjEuNzIsMTYuNjIsOC43MywzMS43NCwxOC45OSw0Ni4wNCwzMS4xMywxMi41OSwxMC42OSwyMy43NCwyMi4xLDM1LjAyLDM0LjE0bDI1Ljc3LDI3LjUzYzExLjI2LDEwLjIzLDI0Ljk0LDE2LjczLDM5LjYzLDIwLjMzbDE5LjI1LDMuNjhjNDkuMDksNy44Myw5Ni42MiwyMy4yOSwxNDAuNzYsNDYuMzUsMjUuMTYsMTMuMTUsNDguNTEsMjksNjkuNDksNDguMDYsMTguMDUsMTYuMzgsMzMuNCwzNS4wNSw0NS40NSw1Ni4xMSw4LjI4LDE0LjUsMTUuOTQsMzQsNS40OSw0Ny43NVoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik01NDAuNzUsMzUxLjUybC05LjAzLDExLjA3Yy02LjIzLDkuNzItOS42NCwyMC4zLTEzLjU1LDMxLjE5LTYuMzksMjAuMzItMTcuMzEsMzguMjMtMzIuOTYsNTIuNjUtMTAuMTUsOC44NC0yMC44LDE2LjU2LTMzLjk2LDIwLjkyLDE5LjUyLTEzLjk3LDM0LjI5LTMxLjk2LDQ0LjA3LTUzLjcxLDUuOS0xMi40LDkuNzMtMjUuMTEsMTIuOTYtMzkuNWwtNTYuNjMtMjAuOTZjLTI1LjE4LTkuMzItNTAuNi0xNS44Ni03Ny4yNC0xOS41NS00OS40Ni02Ljg0LTEwMC4xLS41MS0xNDQuMzgsMjIuOTMtMTkuMDksMTAuMS0zNS43NSwyMy4yNS01MC42NiwzOC43MS0yLjY1LDIuNzQtNC42Miw1LjQ4LTguMDQsNy45LDEuOTUtNC4xNiw0Ljg4LTcuNDMsNy43OS0xMS4yMiwxMS4zOC0xNC44MSwyNC4yMS0yNy44MywzOS42Mi0zOC42OSwxNi40Mi0xMS41NywzMy43NC0yMC45NSw1Mi41OS0yOC4xNywyMi44MS04Ljc0LDQ2LjE5LTE0LjYsNzAuNS0xNi43OWwyMi43NS0xLjE3LDI0LjM5LDEuMjljMjQuNzYsMi4zMSw0OC41MSw4LjExLDcyLjE5LDE1Ljc4bDQ4Ljc0LDE3LjM0LDMwLjg1LDkuOThaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNzgyLjU2LDI4My44NGMtMjkuNzUsNy4xMy02My4zLS45Mi05MS0xMi41LTE2LjQ4LTYuODktMzEuNzUtMTUuMzQtNDUuNDEtMjYuNzYtLjYyLS41Mi0xLjA3LTEuMjUtMS4xNi0xLjc2LS41Mi0zLjA1LDEyLjk2LTguNjIsMTkuNzQtMTAuNTMsMTUuMjItNC4zMSwzMC42My00LjIsNDYuMTUtMS4wNiwxNy44LDMuNjEsMzMuOTMsMTAuOSw0Ny44MywyMi41Myw5Ljg4LDguMjgsMTguMTMsMTcuNzksMjMuODUsMzAuMDhaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QzIiBkPSJNNDUxLjY1LDM1My4xOGMtMjUuMTgtOS4zMi01MC42LTE1Ljg2LTc3LjI0LTE5LjU1LTQ5LjQ2LTYuODQtMTAwLjEtLjUxLTE0NC4zOCwyMi45My0xOS4wOSwxMC4xLTM1Ljc1LDIzLjI1LTUwLjY2LDM4LjcxLTIuNjUsMi43NC00LjYyLDUuNDgtOC4wNCw3LjksMS45NS00LjE2LDQuODgtNy40Myw3Ljc5LTExLjIyLDExLjM4LTE0LjgxLDI0LjIxLTI3LjgzLDM5LjYyLTM4LjY5LDE2LjQyLTExLjU3LDMzLjc0LTIwLjk1LDUyLjU5LTI4LjE3LDIyLjgxLTguNzQsNDYuMTktMTQuNiw3MC41LTE2Ljc5bDIyLjc1LTEuMTcsMjQuMzksMS4yOWMyNC43NiwyLjMxLDQ4LjUxLDguMTEsNzIuMTksMTUuNzhsNDguNzQsMTcuMzQsMzAuODUsOS45OC05LjAzLDExLjA3Yy02LjIzLDkuNzItOS42NCwyMC4zLTEzLjU1LDMxLjE5LTYuMzksMjAuMzItMTcuMzEsMzguMjMtMzIuOTYsNTIuNjUtMTAuMTUsOC44NC0yMC44LDE2LjU2LTMzLjk2LDIwLjkyLDE5LjUyLTEzLjk3LDM0LjI5LTMxLjk2LDQ0LjA3LTUzLjcxLDUuOS0xMi40LDkuNzMtMjUuMTEsMTIuOTYtMzkuNWwtNTYuNjMtMjAuOTZaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNjQ0Ljk5LDI0Mi44MmMtLjUyLTMuMDUsMTIuOTYtOC42MiwxOS43NC0xMC41MywxNS4yMi00LjMxLDMwLjYzLTQuMiw0Ni4xNS0xLjA2LDE3LjgsMy42MSwzMy45MywxMC45LDQ3LjgzLDIyLjUzLDkuODgsOC4yOCwxOC4xMywxNy43OSwyMy44NSwzMC4wOC0yOS43NSw3LjEzLTYzLjMtLjkyLTkxLTEyLjUtMTYuNDgtNi44OS0zMS43NS0xNS4zNC00NS40MS0yNi43Ni0uNjItLjUyLTEuMDctMS4yNS0xLjE2LTEuNzZaIi8+CiAgICA8cGF0aCBjbGFzcz0ic3QyIiBkPSJNODk1Ljk4LDMzNi44Yy0xOS40MiwyNS41Ni05MS41LDMzLjk4LTEyNC4yMiwzNi4xOWwtNDguMTUsMy4yN2MtMTguMSwxLjIzLTM1LjY3LDMuNDktNTMuMTEsOC44LTIwLjM3LDYuMjEtMzguMjMsMTcuMDUtNTQuNzksMzAuMjYtMTcuMDIsMTMuNTYtMzQuMDQsMjYuMTQtNTIuODEsMzcuMi0zNi4wOCwyMS4yOC03OS45NywzNi41NS0xMjIuMDYsMzUuNzhsMzUuMTktMTAuNThjNDcuMTEtMTcuNjIsODcuMDYtNDMuODksMTE5LjMtODIuNzYsMTAuNjUtMTIuODUsMjAuMzItMjUuOTEsMjkuMTYtNDBsMTAuNzYtMTguNzRjMzUuNzctMjUuODMsNzcuOTItMzIuNjUsMTIxLjA5LTI0LjI0bDMyLjE2LDguMTcsMzQuNTUsMTAuMTVjMTguNTIsNS40NCw2MS4yMiwxNC4wOSw2NS43MS03LjU1LDIuMzMtMTEuMjQtMTAuMTMtMzAuNDctMTcuNzYtNDAuNDYtMTAuMzgtMTMuNTgtMjEuODItMjUuNjUtMzUuMDktMzYuNTQtMzEuMzQtMjUuNzQtNjMuMzYtNDIuNzUtMTAxLjExLTU3LjU0LTU2LjIzLTIyLjAyLTExMS4yOC0zMi4xNy0xNzEuMDMtMzcuMzdsLTE2LjItMjcuNTljLTguNTctMTQuNTktMTkuMi0yNy4yNS0zMC43Mi0zOS42Ny0yMi4yOC0yMy4yMy00Ny4yOC00MC42OS03Ny45OC01MC43N2wtMS4wNi43OCwxMi4xNSwyMi41NWMxNC45NCwzMC44NiwyNC41Niw3MS4xOSwxLjc4LDk5LjcxLTEyLjU4LDE1Ljc2LTMwLjA3LDI0LjM1LTQ4LjYsMzEuNjNsLTQwLjQ1LDE1Ljg4Yy0yMy45NSw5LjQxLTQ2LjY3LDIwLjg4LTY4Ljg3LDMzLjk5LTM2LjIxLDIxLjM5LTY4LjgsNDguMjQtOTUuMjksODAuOTktMTYuNDMsMjAuMzEtMjkuOTYsNDIuNTMtNDEuMDUsNjYuMWwtMTYuOTcsNDMuNzRjLTMuMzcsOC43LTYuNjcsMTYuNzQtMTEuMjMsMjQuODctOS42NywxNy4yNC0yMy44NywzMS4xNi00MS45MywzOS4zOC0yNi45OSwxMi4yNy02MC4yOCw4LjM3LTg3LjM1LTMuODdsMjUuODguMDNjMzkuOTYtMi41LDcxLjk3LTI1LjYsOTIuOTItNTguODgsNi42LTEwLjUsMTEuNTktMjEuMTEsMTYuNTktMzIuNDksMjEuMi00OC4zMyw0My4zNi04NC43Niw4MC44Mi0xMjIuMzgsMTcuMzctMTcuNDQsMzUuOTMtMzIuODIsNTYuMzktNDYuNDksMzIuMi0yMS41Miw2OC44OS0zOS44MiwxMDUuMTItNTMuMzhsMjQuNjEtMTAuMzhjOS42Mi00Ljg1LDE4LjEzLTEwLjc2LDI1LjUzLTE4LjUyLDE0LjA2LTE0Ljc0LDE5Ljk3LTM0LjU4LDE2LjM2LTU0LjcxLTIuMzMtMTMuMDQtNy4wMS0yNC43NS0xMy4xOC0zNi41MS04LjY0LTE2LjQ3LTIwLjAxLTMwLjgxLTMyLjk1LTQ0LjEybC0xMC40Mi0xMC43M2MyOC45My42OCw1Ni4xNCw4LjQ1LDgxLjQxLDIxLjcyLDE2LjYyLDguNzMsMzEuNzQsMTguOTksNDYuMDQsMzEuMTMsMTIuNTksMTAuNjksMjMuNzQsMjIuMSwzNS4wMiwzNC4xNGwyNS43NywyNy41M2MxMS4yNiwxMC4yMywyNC45NCwxNi43MywzOS42MywyMC4zM2wxOS4yNSwzLjY4YzQ5LjA5LDcuODMsOTYuNjIsMjMuMjksMTQwLjc2LDQ2LjM1LDI1LjE2LDEzLjE1LDQ4LjUxLDI5LDY5LjQ5LDQ4LjA2LDE4LjA1LDE2LjM4LDMzLjQsMzUuMDUsNDUuNDUsNTYuMTEsOC4yOCwxNC41LDE1Ljk0LDM0LDUuNDksNDcuNzVaIi8+CiAgPC9nPgo8L3N2Zz4=" alt="OrkAI"></div>
     <div class="login-logo">OrkAI CRM</div>
     <div class="login-sub">Gestão comercial · Acesso restrito</div>
     <h2>Entrar</h2>
-    <div class="form-group"><label>Usuário</label><input type="text" id="loginUser" placeholder="Seu usuário" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <div class="form-group"><label>E-mail</label><input type="email" id="loginEmail" placeholder="seu@email.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <div class="form-group"><label>Senha</label><input type="password" id="loginPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
-    <div class="login-error" id="loginError">Usuário ou senha incorretos.</div>
-    <button class="btn btn-primary btn-full" style="margin-top:20px;" onclick="doLogin()">Entrar</button>
+    <div class="login-error" id="loginError">E-mail ou senha incorretos.</div>
+    <button class="btn btn-primary btn-full" id="loginBtn" style="margin-top:20px;" onclick="doLogin()">Entrar</button>
+  </div>
+
+  <!-- ETAPA 2: código do app autenticador -->
+  <div class="login-card" id="loginStep2" style="display:none;">
+    <div class="login-logo">OrkAI CRM</div>
+    <div class="login-sub" style="margin-bottom:24px;">Verificação em duas etapas</div>
+    <h2>Digite o código do seu app autenticador</h2>
+    <div class="form-group">
+      <label>Código de 6 dígitos</label>
+      <input type="text" id="mfaCode" placeholder="000000" maxlength="6" inputmode="numeric" style="text-align:center;font-size:20px;letter-spacing:4px;" onkeydown="if(event.key==='Enter')verifyMfaCode()">
+    </div>
+    <button class="btn btn-primary btn-full" id="mfaVerifyBtn" onclick="verifyMfaCode()">Verificar</button>
+    <div class="login-error" id="mfaError">Código inválido. Tente novamente.</div>
+    <div style="text-align:center;margin-top:14px;"><span class="logout-link" onclick="cancelMfaStep()" style="cursor:pointer;color:var(--text3);font-size:12px;">Cancelar e voltar</span></div>
+  </div>
+
+  <!-- ETAPA OPCIONAL: configurar MFA no primeiro acesso -->
+  <div class="login-card" id="loginStepSetupMfa" style="display:none;width:380px;">
+    <div class="login-logo">OrkAI CRM</div>
+    <div class="login-sub" style="margin-bottom:20px;">Configure a verificação em duas etapas</div>
+    <div style="background:var(--bg3);border-radius:10px;padding:14px 16px;margin-bottom:18px;">
+      <div style="font-size:12px;color:var(--text3);font-weight:600;margin-bottom:8px;">Como configurar:</div>
+      <ol style="font-size:12px;color:var(--text2);line-height:1.7;padding-left:18px;margin:0;">
+        <li>Baixe um app autenticador no seu celular, se ainda não tiver: <strong>Google Authenticator</strong> ou <strong>Microsoft Authenticator</strong> (Authy também funciona)</li>
+        <li>Abra o app e escolha a opção de <strong>adicionar uma conta</strong> (geralmente um botão "+")</li>
+        <li>Escolha <strong>"Escanear QR code"</strong> e aponte a câmera para o código abaixo</li>
+        <li>O app vai mostrar um código de <strong>6 números</strong> que muda a cada 30 segundos</li>
+        <li>Digite esse código no campo abaixo e clique em <strong>Confirmar e ativar</strong></li>
+      </ol>
+    </div>
+    <div id="mfaQrCode" style="display:flex;justify-content:center;margin-bottom:16px;background:#fff;padding:16px;border-radius:10px;"></div>
+    <style>#mfaQrCode svg{width:200px;height:200px;}</style>
+    <div class="form-group">
+      <label>Digite o código gerado pelo app para confirmar</label>
+      <input type="text" id="mfaSetupCode" placeholder="000000" maxlength="6" inputmode="numeric" style="text-align:center;font-size:20px;letter-spacing:4px;">
+    </div>
+    <button class="btn btn-primary btn-full" id="mfaSetupConfirmBtn" onclick="confirmMfaSetup()">Confirmar e ativar</button>
+    <div class="login-error" id="mfaSetupError">Código inválido. Tente novamente.</div>
   </div>
 </div>
 
@@ -1153,15 +1191,18 @@ function setupSupportRealtime(){
           </label>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group"><label>Login (usuário)</label><input type="text" id="s-login" placeholder="ex: cris"></div>
-        <div class="form-group"><label>Senha</label><input type="password" id="s-password" placeholder="••••••••"></div>
+      <div class="form-group" id="s-invite-info" style="background:var(--bg3);border-radius:8px;padding:10px 12px;font-size:12px;color:var(--text3);">
+        O vendedor recebe um e-mail para definir a própria senha e configurar a verificação em duas etapas no primeiro acesso.
+      </div>
+      <div class="form-group" style="display:none;">
+        <input type="hidden" id="s-login">
+        <input type="hidden" id="s-password">
       </div>
       <div class="form-group"><label>Status</label>
         <select id="s-status"><option value="active">Ativo</option><option value="inactive">Inativo</option></select>
       </div>
     </div>
-    <div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('sellerModal')">Cancelar</button><button class="btn btn-primary" onclick="saveSeller()">Salvar Vendedor</button></div>
+    <div class="modal-footer"><button class="btn btn-ghost" onclick="closeModal('sellerModal')">Cancelar</button><button class="btn btn-primary" id="sellerSaveBtn" onclick="saveSeller()">Salvar Vendedor</button></div>
   </div>
 </div>
 
@@ -1206,9 +1247,11 @@ function setupSupportRealtime(){
 <script>
 const SUPA_URL='https://wuuoiukypfkxnyrxcklo.supabase.co';
 const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dW9pdWt5cGZreG55cnhja2xvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4NDY0NzcsImV4cCI6MjA5NzQyMjQ3N30.g_-0-vifBotWLVrN5Jolqmek0U-RTzZ5oeGEsYuQVyA';
-const ADMIN={login:'admin',password:'cliente123',name:'Admin',role:'admin'};
-const SESSION_KEY='crm_session';
-const SESSION_DAYS=30;
+const ADMIN={email:'TROCAR_PELO_EMAIL_DO_ADMIN',name:'Admin',role:'admin'};
+// URL do Cloudflare Worker (mesmo do Painel Mãe) — usado para criar a conta Auth do vendedor novo
+const WORKER_URL = 'https://orkai-backend.orkia-system.workers.dev';
+// ID deste cliente no Painel Mãe (tabela clients) — usado para o Worker achar a service_role_key certa
+const CLIENT_ID_NO_PAINEL_MAE = 'TROCAR_PELO_ID_DESTE_CLIENTE';
 
 let db=null,allLeads=[],allSellers=[],currentDetailLead=null,currentUser=null,stageChart=null;
 let dragLeadId=null;
@@ -1226,21 +1269,6 @@ const STAGES={
   archived:{label:'Arquivado',badge:'badge-archived',dot:'#94a3b8'}
 };
 
-// SESSION
-function saveSession(u){localStorage.setItem(SESSION_KEY,JSON.stringify({user:u,expires:Date.now()+SESSION_DAYS*86400000}));}
-function loadSession(){try{const r=localStorage.getItem(SESSION_KEY);if(!r)return null;const s=JSON.parse(r);if(Date.now()>s.expires){localStorage.removeItem(SESSION_KEY);return null;}return s.user;}catch(e){return null;}}
-function clearSession(){localStorage.removeItem(SESSION_KEY);}
-
-// LOGIN
-function doLogin(){
-  const u=document.getElementById('loginUser').value.trim().toLowerCase();
-  const p=document.getElementById('loginPass').value;
-  document.getElementById('loginError').style.display='none';
-  if(u===ADMIN.login&&p===ADMIN.password){currentUser=ADMIN;saveSession(currentUser);onLoginSuccess();return;}
-  const s=allSellers.find(s=>s.login&&s.login.toLowerCase()===u&&s.password===p&&s.status==='active');
-  if(s){currentUser={...s,role:'seller'};saveSession(currentUser);onLoginSuccess();return;}
-  document.getElementById('loginError').style.display='block';
-}
 function onLoginSuccess(){
   document.getElementById('loginScreen').classList.remove('show');
   document.getElementById('supportChatFab').style.display='flex';
@@ -1270,7 +1298,19 @@ function onLoginSuccess(){
     scheduleReminderCheck();
   });
 }
-function logout(){currentUser=null;clearSession();document.getElementById('loginUser').value='';document.getElementById('loginPass').value='';document.getElementById('loginScreen').classList.add('show');closeDrawer();if(realtimeChannel){db.removeChannel(realtimeChannel);realtimeChannel=null;}document.getElementById('supportChatFab').style.display='none';document.getElementById('supportChatPanel').style.display='none';supportChatOpen=false;if(supportChatChannel){db.removeChannel(supportChatChannel);supportChatChannel=null;supportChatLoaded=false;}}
+async function logout(){
+  await db.auth.signOut();
+  currentUser=null;
+  document.getElementById('loginEmail').value='';
+  document.getElementById('loginPass').value='';
+  document.getElementById('loginScreen').classList.add('show');
+  closeDrawer();
+  if(realtimeChannel){db.removeChannel(realtimeChannel);realtimeChannel=null;}
+  document.getElementById('supportChatFab').style.display='none';
+  document.getElementById('supportChatPanel').style.display='none';
+  supportChatOpen=false;
+  if(supportChatChannel){db.removeChannel(supportChatChannel);supportChatChannel=null;supportChatLoaded=false;}
+}
 
 // DRAWER
 function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawerOverlay').classList.add('open');}
@@ -1285,6 +1325,7 @@ function openProfileModal(){
   document.getElementById('p-nickname').value=u.nickname||'';
   document.getElementById('p-phone').value=u.phone||'';
   document.getElementById('p-email').value=u.email||'';
+  document.getElementById('p-email').disabled=true;
   document.getElementById('p-newpass').value='';
   document.getElementById('p-confirmpass').value='';
   const color=u.color||'#3d7eff';
@@ -1312,24 +1353,29 @@ async function saveProfile(){
   const newPass=document.getElementById('p-newpass').value;
   const confirmPass=document.getElementById('p-confirmpass').value;
   if(newPass&&newPass!==confirmPass){showToast('As senhas não conferem.','error');return;}
-  if(newPass&&newPass.length<4){showToast('Senha deve ter ao menos 4 caracteres.','error');return;}
+  if(newPass&&newPass.length<6){showToast('Senha deve ter ao menos 6 caracteres.','error');return;}
+
+  // E-mail não entra aqui: é a identidade de login (auth_user_id), trocar exigiria um fluxo
+  // de confirmação separado do Supabase Auth, então por ora só nome/telefone/cor são editáveis.
   const data={
     name:document.getElementById('p-name').value.trim(),
     nickname:document.getElementById('p-nickname').value.trim(),
     phone:document.getElementById('p-phone').value.trim(),
-    email:document.getElementById('p-email').value.trim(),
     color:document.getElementById('p-color').value
   };
-  if(newPass)data.password=newPass;
+
+  if(newPass){
+    const { error: passError } = await db.auth.updateUser({ password: newPass });
+    if(passError){ showToast('Erro ao trocar senha: '+passError.message,'error'); return; }
+  }
+
   if(currentUser.role==='admin'){
     Object.assign(currentUser,data);
-    saveSession(currentUser);
-    showToast('Perfil atualizado!','success');
+    showToast(newPass?'Perfil e senha atualizados!':'Perfil atualizado!','success');
   } else {
     const{error}=await db.from('sellers').update(data).eq('id',currentUser.id);
     if(error){showToast('Erro ao salvar: '+error.message,'error');return;}
     Object.assign(currentUser,data);
-    saveSession(currentUser);
     await loadSellers();
     showToast(newPass?'Perfil e senha atualizados!':'Perfil atualizado!','success');
   }
@@ -1351,16 +1397,234 @@ window.addEventListener('DOMContentLoaded',async ()=>{
   if (window.__masterCheckPromise) { await window.__masterCheckPromise; }
   if (window.__MASTER_BLOCKED__) return;
   db=window.supabase.createClient(SUPA_URL,SUPA_KEY);
-  loadSellers(true).then(()=>{
-    const saved=loadSession();
-    if(saved){
-      if(saved.role==='seller'){const s=allSellers.find(s=>s.id==saved.id&&s.status==='active');if(!s){clearSession();return;}currentUser={...s,role:'seller'};}
-      else currentUser=saved;
-      onLoginSuccess();
-    }
-  });
+
+  await loadSellers(true);
+
+  // Verifica se já existe uma sessão válida do Supabase Auth (persistida de uma visita anterior)
+  const { data: { session } } = await db.auth.getSession();
+  if(session){
+    await checkMfaAndProceed();
+  }
+
   document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
 });
+
+// ---------- LOGIN (Supabase Auth + MFA) ----------
+let pendingMfaFactorId = null;
+
+async function doLogin(){
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  document.getElementById('loginError').style.display='none';
+
+  if(!email || !pass){
+    document.getElementById('loginError').textContent = 'Informe e-mail e senha.';
+    document.getElementById('loginError').style.display='block';
+    return;
+  }
+
+  const btn = document.getElementById('loginBtn');
+  btn.disabled = true; btn.textContent = 'Entrando...';
+
+  const { error } = await db.auth.signInWithPassword({ email, password: pass });
+
+  btn.disabled = false; btn.textContent = 'Entrar';
+
+  if(error){
+    document.getElementById('loginError').textContent = 'E-mail ou senha incorretos.';
+    document.getElementById('loginError').style.display='block';
+    return;
+  }
+
+  await checkMfaAndProceed();
+}
+
+// Decide o que mostrar depois de qualquer autenticação bem-sucedida: se o usuário já tem
+// MFA verificado mas ainda não passou pelo desafio nesta sessão, exige o código antes de
+// liberar; se nunca configurou MFA, força a configuração; senão, libera direto.
+async function checkMfaAndProceed(){
+  const { data: aalData } = await db.auth.mfa.getAuthenticatorAssuranceLevel();
+
+  if(aalData?.currentLevel === 'aal2'){
+    await finishLoginAfterAuth();
+    return;
+  }
+
+  const { data: factorsData } = await db.auth.mfa.listFactors();
+  const verifiedTotp = factorsData?.totp?.find(f => f.status === 'verified');
+
+  if(verifiedTotp){
+    pendingMfaFactorId = verifiedTotp.id;
+    document.getElementById('loginStep1').style.display = 'none';
+    document.getElementById('loginStep2').style.display = 'block';
+    document.getElementById('mfaCode').focus();
+  } else {
+    await startMfaSetup();
+  }
+}
+
+async function verifyMfaCode(){
+  const code = document.getElementById('mfaCode').value.trim();
+  document.getElementById('mfaError').style.display = 'none';
+  if(!code || code.length !== 6){
+    document.getElementById('mfaError').textContent = 'Digite os 6 dígitos do código.';
+    document.getElementById('mfaError').style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('mfaVerifyBtn');
+  btn.disabled = true; btn.textContent = 'Verificando...';
+
+  const { data: challenge, error: challengeError } = await db.auth.mfa.challenge({ factorId: pendingMfaFactorId });
+  if(challengeError){
+    showMfaVerifyError('Erro ao iniciar verificação. Tente novamente.');
+    btn.disabled = false; btn.textContent = 'Verificar';
+    return;
+  }
+
+  const { error: verifyError } = await db.auth.mfa.verify({
+    factorId: pendingMfaFactorId,
+    challengeId: challenge.id,
+    code
+  });
+
+  btn.disabled = false; btn.textContent = 'Verificar';
+
+  if(verifyError){
+    showMfaVerifyError('Código inválido. Tente novamente.');
+    return;
+  }
+
+  await finishLoginAfterAuth();
+}
+
+function showMfaVerifyError(msg){
+  document.getElementById('mfaError').textContent = msg;
+  document.getElementById('mfaError').style.display = 'block';
+  document.getElementById('mfaCode').value = '';
+  document.getElementById('mfaCode').focus();
+}
+
+function cancelMfaStep(){
+  pendingMfaFactorId = null;
+  document.getElementById('mfaCode').value = '';
+  document.getElementById('loginStep2').style.display = 'none';
+  document.getElementById('loginStep1').style.display = 'block';
+}
+
+async function startMfaSetup(){
+  let { data, error } = await db.auth.mfa.enroll({ factorType: 'totp' });
+
+  if(error){
+    // Remove qualquer fator TOTP de tentativa anterior não concluída antes de tentar de novo
+    // (o Supabase não permite criar um fator novo com nome duplicado de um já existente)
+    const { data: factorsData } = await db.auth.mfa.listFactors();
+    const existingFactors = factorsData?.totp || [];
+    for(const factor of existingFactors){
+      await db.auth.mfa.unenroll({ factorId: factor.id });
+    }
+    if(existingFactors.length){
+      const retry = await db.auth.mfa.enroll({ factorType: 'totp' });
+      data = retry.data;
+      error = retry.error;
+    }
+  }
+
+  if(error){
+    document.getElementById('loginError').textContent = 'Erro ao iniciar configuração de segurança: ' + error.message;
+    document.getElementById('loginError').style.display = 'block';
+    return;
+  }
+
+  pendingMfaFactorId = data.id;
+  document.getElementById('loginStep1').style.display = 'none';
+  renderQrCode(data.totp.qr_code);
+  document.getElementById('loginStepSetupMfa').style.display = 'block';
+}
+
+// O Supabase pode retornar o QR code como SVG puro ou como data URI (data:image/svg+xml;utf8,<svg ...>).
+// O SVG contém aspas duplas internamente, então nunca montar a tag <img> como string concatenada —
+// usamos setAttribute, que trata o valor como dado bruto, sem conflito de aspas.
+function renderQrCode(qrCodeValue){
+  const box = document.getElementById('mfaQrCode');
+  const trimmed = (qrCodeValue || '').trim();
+  box.innerHTML = '';
+  if(trimmed.startsWith('data:')){
+    const img = document.createElement('img');
+    img.setAttribute('src', trimmed);
+    img.style.width = '200px';
+    img.style.height = '200px';
+    box.appendChild(img);
+  } else {
+    box.innerHTML = trimmed;
+  }
+}
+
+async function confirmMfaSetup(){
+  const code = document.getElementById('mfaSetupCode').value.trim();
+  document.getElementById('mfaSetupError').style.display = 'none';
+  if(!code || code.length !== 6){
+    document.getElementById('mfaSetupError').textContent = 'Digite os 6 dígitos do código.';
+    document.getElementById('mfaSetupError').style.display = 'block';
+    return;
+  }
+
+  const btn = document.getElementById('mfaSetupConfirmBtn');
+  btn.disabled = true; btn.textContent = 'Confirmando...';
+
+  const { data: challenge, error: challengeError } = await db.auth.mfa.challenge({ factorId: pendingMfaFactorId });
+  if(challengeError){
+    document.getElementById('mfaSetupError').textContent = 'Erro ao confirmar. Tente novamente.';
+    document.getElementById('mfaSetupError').style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Confirmar e ativar';
+    return;
+  }
+
+  const { error: verifyError } = await db.auth.mfa.verify({
+    factorId: pendingMfaFactorId,
+    challengeId: challenge.id,
+    code
+  });
+
+  btn.disabled = false; btn.textContent = 'Confirmar e ativar';
+
+  if(verifyError){
+    document.getElementById('mfaSetupError').textContent = 'Código inválido. Verifique o app e tente novamente.';
+    document.getElementById('mfaSetupError').style.display = 'block';
+    return;
+  }
+
+  await finishLoginAfterAuth();
+}
+
+// Depois de qualquer autenticação completa (com ou sem MFA), descobre se o usuário logado
+// é o admin do CRM ou um vendedor, consultando a tabela sellers pelo auth_user_id.
+async function finishLoginAfterAuth(){
+  const { data: { user } } = await db.auth.getUser();
+
+  if(user.email.toLowerCase() === ADMIN.email?.toLowerCase()){
+    currentUser = { ...ADMIN, auth_user_id: user.id };
+  } else {
+    const seller = allSellers.find(s => s.auth_user_id === user.id && s.status === 'active');
+    if(!seller){
+      document.getElementById('loginError').textContent = 'Usuário sem acesso liberado neste CRM. Contate o administrador.';
+      document.getElementById('loginError').style.display = 'block';
+      await db.auth.signOut();
+      return;
+    }
+    currentUser = { ...seller, role: 'seller' };
+  }
+
+  document.getElementById('loginStep1').style.display = 'block';
+  document.getElementById('loginStep2').style.display = 'none';
+  document.getElementById('loginStepSetupMfa').style.display = 'none';
+  document.getElementById('loginEmail').value = '';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('mfaCode').value = '';
+  document.getElementById('mfaSetupCode').value = '';
+
+  onLoginSuccess();
+}
 
 async function loadAll(){
   await Promise.all([loadSellers(),loadLeads()]);
@@ -1594,7 +1858,7 @@ function renderSellers(){
         <div class="avatar-lg" style="background:${s.color||'#3d7eff'}">${initials(s.nickname||s.name)}</div>
         <div style="flex:1"><div class="seller-name">${s.name}</div>
         <div class="seller-role">${s.role||'Vendedor'} <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${s.status==='active'?'var(--green)':'var(--red)'};margin-left:6px;vertical-align:2px;"></span></div>
-        ${s.login?`<div style="font-size:11px;color:var(--text3);margin-top:2px;">Login: ${s.login}</div>`:''}
+        ${s.email?`<div style="font-size:11px;color:var(--text3);margin-top:2px;">${s.email}</div>`:''}
         ${s.can_see_all_leads?`<div style="font-size:10px;color:var(--accent);margin-top:3px;">👁 Vê todos os leads</div>`:''}
         </div>
       </div>
@@ -1710,8 +1974,10 @@ async function saveLead(){
 function openSellerModal(seller=null){
   document.getElementById('editSellerId').value=seller?seller.id:'';
   document.getElementById('sellerModalTitle').textContent=seller?'Editar Vendedor':'Novo Vendedor';
-  [['s-name','name'],['s-nickname','nickname'],['s-phone','phone'],['s-email','email'],['s-goal','goal'],['s-login','login']].forEach(([id,k])=>document.getElementById(id).value=seller?(seller[k]||''):'');
-  document.getElementById('s-password').value='';
+  [['s-name','name'],['s-nickname','nickname'],['s-phone','phone'],['s-email','email'],['s-goal','goal']].forEach(([id,k])=>document.getElementById(id).value=seller?(seller[k]||''):'');
+  // E-mail não pode ser trocado depois de criado, porque é a identidade de login (auth_user_id já está vinculado a ele)
+  document.getElementById('s-email').disabled = !!seller;
+  document.getElementById('s-invite-info').style.display = seller ? 'none' : 'block';
   document.getElementById('s-role').value=seller?(seller.role||'Vendedor'):'Vendedor';
   document.getElementById('s-status').value=seller?(seller.status||'active'):'active';
   const canSeeAll = seller ? (seller.can_see_all_leads || ROLES_SEE_ALL.includes(seller.role)) : false;
@@ -1724,16 +1990,54 @@ function openSellerModal(seller=null){
 async function saveSeller(){
   const id=document.getElementById('editSellerId').value;
   if(!document.getElementById('s-name').value.trim()){showToast('Nome é obrigatório.','error');return;}
-  const pass=document.getElementById('s-password').value;
-  const data={name:document.getElementById('s-name').value.trim(),nickname:document.getElementById('s-nickname').value.trim(),phone:document.getElementById('s-phone').value.trim(),email:document.getElementById('s-email').value.trim(),role:document.getElementById('s-role').value,goal:parseFloat(document.getElementById('s-goal').value)||null,color:document.getElementById('s-color').value,status:document.getElementById('s-status').value,login:document.getElementById('s-login').value.trim(),can_see_all_leads:document.getElementById('s-can-see-all').checked};
-  if(pass)data.password=pass;
-  const{error}=id?await db.from('sellers').update(data).eq('id',id):await db.from('sellers').insert([data]);
-  if(error){showToast('Erro: '+error.message,'error');return;}
-  showToast(id?'Vendedor atualizado!':'Vendedor cadastrado!','success');
-  closeModal('sellerModal');
-  await loadSellers();
-  renderSellers();
-  renderDashboard();
+  const email=document.getElementById('s-email').value.trim();
+  if(!email){showToast('E-mail é obrigatório.','error');return;}
+
+  const data={name:document.getElementById('s-name').value.trim(),nickname:document.getElementById('s-nickname').value.trim(),phone:document.getElementById('s-phone').value.trim(),email,role:document.getElementById('s-role').value,goal:parseFloat(document.getElementById('s-goal').value)||null,color:document.getElementById('s-color').value,status:document.getElementById('s-status').value,can_see_all_leads:document.getElementById('s-can-see-all').checked};
+
+  if(id){
+    // Vendedor existente: só atualiza os dados, nunca recria a conta de login
+    const{error}=await db.from('sellers').update(data).eq('id',id);
+    if(error){showToast('Erro: '+error.message,'error');return;}
+    showToast('Vendedor atualizado!','success');
+    closeModal('sellerModal');
+    await loadSellers();
+    renderSellers();
+    renderDashboard();
+    return;
+  }
+
+  // Vendedor novo: primeiro cria a conta no Supabase Auth (via Worker, com a service_role_key
+  // protegida), depois grava na tabela sellers já com o auth_user_id vinculado.
+  const btn=document.getElementById('sellerSaveBtn');
+  if(btn){ btn.disabled=true; btn.textContent='Criando acesso...'; }
+
+  try{
+    const res = await fetch(`${WORKER_URL}/create-seller-auth`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ client_id: CLIENT_ID_NO_PAINEL_MAE, seller_email: email, seller_name: data.name })
+    });
+    const result = await res.json();
+    if(!res.ok || !result.success){
+      showToast('Erro ao criar acesso: ' + (result.error || 'falha desconhecida'), 'error');
+      return;
+    }
+
+    data.auth_user_id = result.auth_user_id;
+    const{error}=await db.from('sellers').insert([data]);
+    if(error){showToast('Acesso criado, mas erro ao salvar vendedor: '+error.message,'error');return;}
+
+    showToast('Vendedor cadastrado! Um e-mail foi enviado para ele definir a senha.','success');
+    closeModal('sellerModal');
+    await loadSellers();
+    renderSellers();
+    renderDashboard();
+  }catch(e){
+    showToast('Erro de conexão ao criar acesso do vendedor.','error');
+  }finally{
+    if(btn){ btn.disabled=false; btn.textContent='Salvar'; }
+  }
 }
 function editLead(id){const l=allLeads.find(l=>l.id==id);if(l)openLeadModal(l);}
 function editSeller(id){const s=allSellers.find(s=>s.id==id);if(s)openSellerModal(s);}
