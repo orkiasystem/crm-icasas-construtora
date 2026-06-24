@@ -1247,11 +1247,11 @@ function setupSupportRealtime(){
 <script>
 const SUPA_URL='https://wuuoiukypfkxnyrxcklo.supabase.co';
 const SUPA_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dW9pdWt5cGZreG55cnhja2xvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4NDY0NzcsImV4cCI6MjA5NzQyMjQ3N30.g_-0-vifBotWLVrN5Jolqmek0U-RTzZ5oeGEsYuQVyA';
-const ADMIN={email:'TROCAR_PELO_EMAIL_DO_ADMIN',name:'Admin',role:'admin'};
+const ADMIN={email:'lucas.s.ribeiro@hotmail.com',name:'Admin',role:'admin'};
 // URL do Cloudflare Worker (mesmo do Painel Mãe) — usado para criar a conta Auth do vendedor novo
 const WORKER_URL = 'https://orkai-backend.orkia-system.workers.dev';
 // ID deste cliente no Painel Mãe (tabela clients) — usado para o Worker achar a service_role_key certa
-const CLIENT_ID_NO_PAINEL_MAE = 'TROCAR_PELO_ID_DESTE_CLIENTE';
+const CLIENT_ID_NO_PAINEL_MAE = 'ed59d798-eeab-423d-bc4c-b3841279d64b';
 
 let db=null,allLeads=[],allSellers=[],currentDetailLead=null,currentUser=null,stageChart=null;
 let dragLeadId=null;
@@ -1513,7 +1513,7 @@ function cancelMfaStep(){
 }
 
 async function startMfaSetup(){
-  let { data, error } = await db.auth.mfa.enroll({ factorType: 'totp' });
+  let { data, error } = await db.auth.mfa.enroll({ factorType: 'totp', issuer: 'OrkAI', friendlyName: 'OrkAI CRM' });
 
   if(error){
     // Remove qualquer fator TOTP de tentativa anterior não concluída antes de tentar de novo
@@ -1524,7 +1524,7 @@ async function startMfaSetup(){
       await db.auth.mfa.unenroll({ factorId: factor.id });
     }
     if(existingFactors.length){
-      const retry = await db.auth.mfa.enroll({ factorType: 'totp' });
+      const retry = await db.auth.mfa.enroll({ factorType: 'totp', issuer: 'OrkAI', friendlyName: 'OrkAI CRM' });
       data = retry.data;
       error = retry.error;
     }
